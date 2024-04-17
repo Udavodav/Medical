@@ -15,15 +15,18 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes();
-            $table->string('lastname');
-            $table->string('firstname');
-            $table->string('patronymic')->nullable();
             $table->date('birthday');
             $table->unsignedBigInteger('competence_id');
+            $table->unsignedBigInteger('user_id');
 
             $table->index('competence_id', 'doctors_competences_idx');
             $table->foreign('competence_id', 'doctors_competences_fk')
                 ->on('competences')
+                ->references('id');
+
+            $table->index('user_id', 'doctors_users_idx');
+            $table->foreign('user_id', 'doctors_users_fk')
+                ->on('users')
                 ->references('id');
 
         });
