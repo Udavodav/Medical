@@ -18,17 +18,22 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 
 ## Tutorial git clone Laravel project
-1. Clone your project
+
+Долженбыть установлен Node.js
+
+1. Clone your project ``git clone ССЫЛКА_НА_ПРОЕКТ``
 2. Go to the folder application using ``cd`` command on your cmd or terminal
 3. Run ``composer install`` on your cmd or terminal
 4. Copy ``.env.example`` file to ``.env`` on the root folder. You can type ``copy .env.example .env`` if using command prompt Windows or ``cp .env.example .env`` if using terminal, Ubuntu
-5. Open your ``.env`` file and change the database name (``DB_DATABASE``) to whatever you have, username (``DB_USERNAME``) and password (``DB_PASSWORD``) field correspond to your configuration.
+5. Open your ``.env`` file and change the database name (``DB_DATABASE``) to whatever you have, username (``DB_USERNAME``) and password (``DB_PASSWORD``) field correspond to your configuration. Add field ``DB_COLLATION`` which value ``utf8mb4_unicode_ci``
 
-    Example:
+   Example:
 
-    ![img.png](img.png)
+   ![img.png](img.png)
 6. Create database which name ``DB_DATABASE``
 7. Run ``php artisan key:generate``
 8. Run ``php artisan migrate``
-9. Run ``php artisan serve``
-10. Go to http://localhost:8000/
+9. Run ``npm install``
+10. Run ``npm run build``
+11. Run ``php artisan serve``
+12. Go to http://localhost:8000/
