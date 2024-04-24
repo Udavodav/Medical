@@ -37,3 +37,13 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 10. Run ``npm run build``
 11. Run ``php artisan serve``
 12. Go to http://localhost:8000/
+
+
+## Полезные ссылки
+
+#### [Сайт Медозон ](https://ulmedozon.ru/)
+
+### Видосики по работе с view
+- [View часть 1](https://www.youtube.com/watch?v=ySSLtZJtvzI&list=PLd2_Os8Cj3t8pnG4ubQemoqnTwf0VFEtU&index=15)
+- [View часть 2](https://www.youtube.com/watch?v=Hrldxy5_x4Y&list=PLd2_Os8Cj3t8pnG4ubQemoqnTwf0VFEtU&index=16)
+
