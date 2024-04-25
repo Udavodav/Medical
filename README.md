@@ -47,3 +47,12 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 - [View часть 1](https://www.youtube.com/watch?v=ySSLtZJtvzI&list=PLd2_Os8Cj3t8pnG4ubQemoqnTwf0VFEtU&index=15)
 - [View часть 2](https://www.youtube.com/watch?v=Hrldxy5_x4Y&list=PLd2_Os8Cj3t8pnG4ubQemoqnTwf0VFEtU&index=16)
 
+
+
+## Маршруты (routes)
+
+- Главная **[ GET localhost/client/ ]**
+- О клинике **[ GET localhost/client/contacts ]**
+- Услуги (список категорий) **[ GET localhost/client/categories ]**
+- Услуги (список услуг по категории) **[ GET localhost/client/services/{category_id} ]**
+- Специалисты **[GET localhost/client/specialists ]**
