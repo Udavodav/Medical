@@ -33,7 +33,7 @@
                                     {!!  $specialist->education !!}
                                 </div>
 
-                                <h4>Подробная информация</h4>
+                                <h4 class="mt-3">Подробная информация</h4>
                                 <p class="card-text">
                                     {!! $specialist->description !!}
                                 </p>

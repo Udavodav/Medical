@@ -28,8 +28,6 @@ class UpdateUserController extends Controller
             abort(500);
         }
 
-        $specialist = $user->doctor;
-
-        return redirect()->route('admin.specialist.show', compact('specialist'));
+        return redirect()->route('admin.specialist.show', $user->doctor()->withTrashed()->first());
     }
 }

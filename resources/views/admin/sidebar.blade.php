@@ -35,13 +35,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('admin.category.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-tasks"></i>
                         <p>
-                            Категории
+                            Категории и услуги
                         </p>
                     </a>
                 </li>
+
 
             </ul>
         </nav>

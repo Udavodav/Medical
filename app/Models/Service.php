@@ -12,4 +12,12 @@ class Service extends Model
     use SoftDeletes;
 
     protected $guarded = [];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+
+
 }

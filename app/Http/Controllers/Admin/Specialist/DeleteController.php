@@ -21,6 +21,6 @@ class DeleteController extends Controller
     {
         $specialist->delete();
 
-        return redirect()->route('admin.specialist.index');
+        return redirect()->route('admin.specialist.show', $specialist->id);
     }
 }
