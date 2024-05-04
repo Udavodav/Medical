@@ -13,12 +13,15 @@ class Doctor extends Model
 
     protected $guarded = [];
 
-    public function user(){
-        return $this->belongsTo(User::class,'user_id');
+    public function competence()
+    {
+        return $this->belongsTo(Competence::class);
     }
 
-    public function name(){
-        return $this->user->name;
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
+
 
 }
