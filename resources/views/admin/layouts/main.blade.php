@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Medical</title>
 
+    <!-- Select multiple  -->
+    <link href="{{asset("plugins/select2/css/select2.min.css")}}" rel="stylesheet" />
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <link rel="website icon" type="png" href="{{asset('images/logo2.png')}}">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
@@ -31,6 +34,8 @@
     <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
+
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 
@@ -80,6 +85,9 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
 
+
+<script src={{asset("plugins/select2/js/select2.min.js")}}></script>
+
 <script>
     $(document).ready(function() {
         $('.summernote').summernote({
@@ -94,19 +102,8 @@
             ]
         });
     });
-    // $(document).ready(function() {
-    //     $('#inputDescription').summernote({
-    //         placeholder: 'Иная информация о специалисте',
-    //         tabsize: 2,
-    //         toolbar: [
-    //             ['style', ['style']],
-    //             ['font', ['bold', 'underline', 'clear']],
-    //             ['para', ['ul', 'ol', 'paragraph']],
-    //             ['table', ['table']],
-    //             ['view', ['help']]
-    //         ]
-    //     });
-    // });
+
+    $('.select2').select2()
 </script>
 
 <script>

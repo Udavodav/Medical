@@ -25,12 +25,19 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
 
-
+                <li class="nav-item">
+                    <a href="{{route('admin.competence.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-dice-d20"></i>
+                        <p>
+                            Компетенции
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="{{route('admin.specialist.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Специалисты
+                            Специалисты и услуги
                         </p>
                     </a>
                 </li>
@@ -39,6 +46,14 @@
                         <i class="nav-icon fas fa-tasks"></i>
                         <p>
                             Категории и услуги
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-newspaper"></i>
+                        <p>
+                            Посты и новости
                         </p>
                     </a>
                 </li>

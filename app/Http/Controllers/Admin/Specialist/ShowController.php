@@ -9,6 +9,7 @@ class ShowController extends Controller
 {
     public function __invoke(Doctor $specialist)
     {
-        return view('admin.specialist.show', compact('specialist'));
+        $services = $specialist->services()->withTrashed()->get();
+        return view('admin.specialist.show', compact(['specialist', 'services']));
     }
 }
