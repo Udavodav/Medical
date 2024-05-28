@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="{{asset('dist/css/select_box.css')}}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Bootstrap CSS -->
@@ -28,6 +31,8 @@
     <link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{asset("assets/css/responsive.css")}}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
     <title>Medical - медицинская клиника</title>
@@ -71,6 +76,7 @@
 </div>
 
 
+
 <!-- Jquery Min JS -->
 <script src="{{asset("assets/js/jquery-3.5.1.slim.min.js")}}"></script>
 <!-- Bootstrap Min JS -->
@@ -95,6 +101,8 @@
 <script src="{{asset("assets/js/contact-form-script.js")}}"></script>
 <!-- Custom JS -->
 <script src="{{asset("assets/js/custom.js")}}"></script>
+
+
 
 </body>
 </html>

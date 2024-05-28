@@ -9,7 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Write extends Model
 {
     use HasFactory;
-    use SoftDeletes;
 
     protected $guarded = [];
+
+
+    public function service(){
+        return $this->belongsTo(Service::class);
+    }
+
 }

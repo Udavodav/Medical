@@ -46,6 +46,19 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
+                                        <label for="inputIcon">Иконка</label>
+                                        <input type="text" name="icon" class="form-control" id="inputIcon"
+                                               placeholder="Иконка" value="{{old('icon','')}}" onchange="iconOnChange()">
+                                        @error('icon')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                        <div class="text-secondary">Для вставки иконки перейдите на сайт <a href="https://fontawesome.com/v5/search?o=r&m=free" target="_blank">FontAwesome</a>
+                                            найдите подходящую иконку и вставте в поле содержимое тега class. Например < i class="fas fa-yin-yang">< / i>, вставляем 'fas fa-yin-yang'</div>
+                                        <div>
+                                            <i id="iconShow" class=""></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <div class="mb-5">
                                             <label for="inputImage" class="form-label">Фото</label>
                                             <input class="form-control" type="file" id="inputImage" onchange="preview()" name="image">
@@ -54,6 +67,7 @@
                                         </div>
                                         <img id="frame" src="" class="img-fluid"/>
                                     </div>
+
 
 
                                 </div>
@@ -75,7 +89,14 @@
                         document.getElementById('formFile').value = null;
                         frame.src = "";
                     }
+
+                    function iconOnChange(){
+                        let inputIcon = document.getElementById('inputIcon')
+                        document.getElementById('iconShow').className = inputIcon.value
+                    }
+
                 </script>
+
 
             </div><!-- /.container-fluid -->
         </section>

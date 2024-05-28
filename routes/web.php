@@ -16,6 +16,17 @@ Route::namespace('App\Http\Controllers\Client')->name('client.')->group(function
     Route::get('/categories', CategoriesController::class)->name('categories');
     Route::get('/services/{category}', ServiceController::class)->name('services');
     Route::get('/specialists', SpecialistController::class)->name('specialists');
+
+});
+
+
+Route::namespace('App\Http\Controllers\Client')->name('client.')->group(function (){ //авторизация
+    Route::get('/write', WriteController::class)->name('write');
+    Route::get('/times', GetTimesController::class)->name('get_times');
+    Route::get('/services-of-doctor', GetServicesController::class)->name('get_services');
+    Route::post('/write', StoreWriteController::class)->name('store_write');
+    Route::get('/visits', VisitController::class)->name('visits');
+
 });
 
 
@@ -47,8 +58,8 @@ Route::prefix('/admin')->name('admin.')->group(function (){
 
     Route::namespace('App\Http\Controllers\Admin\Category')->prefix('/category')->name('category.')->group(function (){
         Route::get('/', IndexController::class)->name('index');
-        Route::get('/{category}', ShowController::class)->name('show')->withTrashed();
         Route::get('/create', CreateController::class)->name('create');
+        Route::get('/{category}', ShowController::class)->name('show')->withTrashed();
         Route::get('/edit/{category}', EditController::class)->name('edit')->withTrashed();
         Route::patch('/update/{category}', UpdateController::class)->name('update')->withTrashed();
         Route::post('/', StoreController::class)->name('store');

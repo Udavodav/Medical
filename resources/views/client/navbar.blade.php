@@ -32,6 +32,7 @@
                                 Услуги
                             </a>
                         </li>
+
 {{--                        <li class="nav-item">--}}
 {{--                            <a href="#" class="nav-link active">--}}
 {{--                                Немного о нас--}}
@@ -42,11 +43,25 @@
                                 Контакты
                             </a>
                         </li>
+
+                        {{-- TODO: Обернуть в условие авторизации для клиента --}}
+                        <li class="nav-item">
+                            <a href="{{route('client.visits')}}" class="nav-link active">
+                                Мои посещения
+                            </a>
+                        </li>
+                        {{-- TODO: Обернуть в условие авторизации для доктора--}}
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+                                Личный кабинет
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
 
                 <a href="#" class="btn  btn-secondary">Вход</a>
-                <a href="#" class="btn  btn-secondary mx-2">Запись на прием</a>
+                <a href="{{route('client.write')}}" class="btn  btn-secondary mx-2">Запись на прием</a>
 
             </nav>
         </div>

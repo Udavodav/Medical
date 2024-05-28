@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Doctor;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
-class SpecialistController extends Controller
+class WriteController extends Controller
 {
     public function __invoke()
     {
         $specialists = Doctor::where('competence_id','<>', 0)->get();
-        return view('client.specialists', compact('specialists'));
+        return view('client.write', compact(['specialists']));
     }
+
 }

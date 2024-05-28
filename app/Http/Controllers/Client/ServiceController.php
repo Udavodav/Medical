@@ -12,6 +12,6 @@ class ServiceController extends Controller
     public function __invoke(Category $category)
     {
         $services = Service::where('category_id', $category->id)->get();
-        return view('client.service.services', compact('services'));
+        return view('client.service.services', compact(['services', 'category']));
     }
 }

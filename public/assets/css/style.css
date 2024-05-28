@@ -1841,7 +1841,7 @@ Service Area
   margin-bottom: 10px;
 }
 
-.service-card:hover .service-content h3 a {
+.service-card:hover .service-content h3 {
   color: #ffffff;
 }
 

@@ -12,7 +12,7 @@ class IndexController extends Controller
     public function __invoke()
     {
         $categories = Category::all()->take(6);
-        $specialists = Doctor::all()->take(5);
+        $specialists = Doctor::where('competence_id','<>', 0)->take(5)->get();
         return view('client.index', compact(['categories', 'specialists']));
     }
 }
