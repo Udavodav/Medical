@@ -52,7 +52,7 @@
                         </li>
                         {{-- TODO: Обернуть в условие авторизации для доктора--}}
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
+                            <a href="{{route('client.doctor_writes')}}" class="nav-link active">
                                 Личный кабинет
                             </a>
                         </li>

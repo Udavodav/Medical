@@ -1,5 +1,18 @@
 <?php
 
+use App\Http\Controllers\Client\CategoriesController;
+use App\Http\Controllers\Client\ContactController;
+use App\Http\Controllers\Client\DoctorWriteController;
+use App\Http\Controllers\Client\GetServicesController;
+use App\Http\Controllers\Client\GetTimesController;
+use App\Http\Controllers\Client\GetWriteDoctorController;
+use App\Http\Controllers\Client\ServiceController;
+use App\Http\Controllers\Client\SpecialistController;
+use App\Http\Controllers\Client\SpecialistDetailsController;
+use App\Http\Controllers\Client\StoreVisitController;
+use App\Http\Controllers\Client\StoreWriteController;
+use App\Http\Controllers\Client\VisitController;
+use App\Http\Controllers\Client\WriteController;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('/', function () {
@@ -16,6 +29,7 @@ Route::namespace('App\Http\Controllers\Client')->name('client.')->group(function
     Route::get('/categories', CategoriesController::class)->name('categories');
     Route::get('/services/{category}', ServiceController::class)->name('services');
     Route::get('/specialists', SpecialistController::class)->name('specialists');
+    Route::get('/specialists/{specialist}', SpecialistDetailsController::class)->name('specialist_details');
 
 });
 
@@ -26,6 +40,16 @@ Route::namespace('App\Http\Controllers\Client')->name('client.')->group(function
     Route::get('/services-of-doctor', GetServicesController::class)->name('get_services');
     Route::post('/write', StoreWriteController::class)->name('store_write');
     Route::get('/visits', VisitController::class)->name('visits');
+
+});
+
+Route::namespace('App\Http\Controllers\Client')->name('client.')->group(function (){ //авторизация doctor
+    Route::get('/doctor-writes', GetWriteDoctorController::class)->name('get_doctor_writes');
+    Route::get('/doctor-visits', GetVisitDoctorController::class)->name('get_doctor_visits');
+    Route::get('/doctor/writes', DoctorWriteController::class)->name('doctor_writes');
+    Route::get('/doctor/visits', DoctorVisitController::class)->name('doctor_visits');
+    Route::post('/doctor/create-visit', StoreVisitController::class)->name('store_visit');
+    Route::patch('/doctor/update-visit', UpdateVisitController::class)->name('update_visit');
 
 });
 

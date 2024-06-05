@@ -55,7 +55,7 @@
                                     <span>{{$specialists[0]->name}}</span>
                                     <i class="uil uil-angle-down"></i>
                                 </div>
-                                <div class="content">
+                                <div class="select-content">
                                     <div class="search">
                                         <i class="uil uil-search"></i>
                                         <input class="sr-inp" spellcheck="false" id="searchSpec" type="text"
@@ -78,7 +78,7 @@
                                     <span></span>
                                     <i class="uil uil-angle-down"></i>
                                 </div>
-                                <div class="content">
+                                <div class="select-content">
                                     <div class="search" id="searchService">
                                         <i class="uil uil-search"></i>
                                         <input class="sr-inp" spellcheck="false" type="text" placeholder="Search">
@@ -104,7 +104,7 @@
                                     <span>Время</span>
                                     <i class="uil uil-angle-down"></i>
                                 </div>
-                                <div class="content">
+                                <div class="select-content">
                                     <ul class="options" id="optionsTime">
 
                                     </ul>

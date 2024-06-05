@@ -12,4 +12,10 @@ class Visit extends Model
     use SoftDeletes;
 
     protected $guarded = [];
+
+    public function write()
+    {
+        return $this->belongsTo(Write::class);
+    }
+
 }

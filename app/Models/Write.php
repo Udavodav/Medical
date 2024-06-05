@@ -17,4 +17,16 @@ class Write extends Model
         return $this->belongsTo(Service::class);
     }
 
+    public function doctor(){
+        return $this->belongsTo(Doctor::class);
+    }
+
+    public function client(){
+        return $this->belongsTo(Client::class);
+    }
+
+    public function visit(){
+        return $this->hasOne(Visit::class);
+    }
+
 }

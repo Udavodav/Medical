@@ -37,12 +37,12 @@
                                 <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
                                     <div class="doctors-item">
                                         <div class="doctors-img">
-                                            <a href="doctors-details.html">
+                                            <a href="{{route('client.specialist_details', $specialist->id)}}">
                                                 <img src="{{asset('storage/'.(empty($specialist->image) ? 'images/picture.jpg' : $specialist->image))}}" alt="Images">
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h3><a href="doctors-details.html">{{$specialist->name}}</a></h3>
+                                            <h3><a href="{{route('client.specialist_details', $specialist->id)}}">{{$specialist->name}}</a></h3>
                                             <span>{{$specialist->competence->title}}</span>
                                             <ul class="social-link">
                                                 <li>
