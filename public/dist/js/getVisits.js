@@ -20,7 +20,6 @@ function inputDate(item, user_id){
             let i = 1;
 
             response.forEach(item => {
-                console.log(item);
                 const tr = `<tr>
                                 <td class="total-price" width="40">
                                     <span>${i}</span>
@@ -45,7 +44,6 @@ function inputDate(item, user_id){
                                 </td>
 
                             </tr>`;
-                console.log(tr);
                 tbody.insertAdjacentHTML("beforeend", tr)
                 i++;
             });

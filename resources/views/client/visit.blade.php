@@ -74,8 +74,9 @@
                                 <span class="subtotal-amount">{{$write->visit ? $write->visit->conclusion : ''}}</span>
                             </td>
                             <td class="product-subtotal" width="100">
-                                {{-- TODO: ссылка на pdf-документ --}}
-                                <span class="subtotal-amount">{{$write->visit ? 'yes': ''}}</span>
+                                @if($write->visit && $write->visit->file)
+                                    <a href="{{ url('/').'/storage/'.$write->visit->file}}" target='_blank'>Результат</a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

@@ -51,6 +51,9 @@ Route::namespace('App\Http\Controllers\Client')->name('client.')->group(function
     Route::post('/doctor/create-visit', StoreVisitController::class)->name('store_visit');
     Route::patch('/doctor/update-visit', UpdateVisitController::class)->name('update_visit');
 
+    Route::get('/medsister', MedsisterController::class)->name('medsister');
+    Route::get('/doctor/search-client', SearchClientController::class);
+    Route::post('/medsister/create-visit', MedsisterCreateVisitController::class);
 });
 
 

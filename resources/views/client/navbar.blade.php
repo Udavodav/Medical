@@ -56,6 +56,12 @@
                                 Личный кабинет
                             </a>
                         </li>
+                        {{-- TODO: Обернуть в условие авторизации для медсестры--}}
+                        <li class="nav-item">
+                            <a href="{{route('client.medsister')}}" class="nav-link active">
+                                Личный кабинет
+                            </a>
+                        </li>
 
                     </ul>
                 </div>
