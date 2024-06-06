@@ -45,8 +45,7 @@
                 </div>
 
                 <label for="dateInp" class="mt-3">Дата</label>
-                {{-- TODO: Auth doctor_id --}}
-                <input type="date" class="mb-3 w-25" name="date" id="dateInp" oninput="inputDate(this, 2)"
+                <input type="date" class="mb-3 w-25" name="date" id="dateInp" oninput="inputDate(this, {{Auth::user()->doctor->id}})"
                        value="{{Carbon\Carbon::now()->format('Y-m-d')}}"
                        min="{{Carbon\Carbon::now()->format('Y-m-d')}}">
 

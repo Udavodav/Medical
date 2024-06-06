@@ -46,7 +46,7 @@
 
                 <div class="form-group mb-5 mx-3">
                     <label for="dateInp" class="mt-3">Дата рождения</label>
-                    {{-- TODO: Auth doctor_id --}}
+
                     <input type="date" class="mb-3 w-25 mx-3" name="date" id="dateInp" oninput="inputData()">
                 </div>
 

@@ -17,8 +17,7 @@ class StoreWriteController extends Controller
         try {
             Write::create($data);
 
-            // TODO: осуществить переход на страницу с записями клиента
-            return redirect()->route('client.index');
+            return redirect()->route('client.visits');
         } catch (QueryException $e) {
             abort(500);
         }

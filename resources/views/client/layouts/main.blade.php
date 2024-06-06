@@ -69,8 +69,7 @@
     <div class="container">
         <div class="copy-right-text text-center">
             <p>
-                Copyright ©2024 Medical. All Rights Reserved by
-                <a href="#" target="_blank">HiBootstrap</a>
+                Copyright ©2024 Medical.
             </p>
         </div>
     </div>

@@ -45,7 +45,7 @@
 
                         <div class="row">
 
-                            <input class="d-none" name="client_id" value="1">
+                            <input class="d-none" name="client_id" value="{{Auth::user()->client->id}}">
 
                             <div class="wrapper" id="wrapperSpec">
                                 <label class="mx-2 my-2 fw-bold">Специалист:</label>

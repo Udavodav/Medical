@@ -15,8 +15,8 @@ use App\Http\Controllers\Client\VisitController;
 use App\Http\Controllers\Client\WriteController;
 use Illuminate\Support\Facades\Route;
 
-//Route::get('/', function () {
-//    return view('welcome');
+//Route::get('/home', function () {
+//    return view('home');
 //});
 
 Auth::routes();
@@ -34,7 +34,7 @@ Route::namespace('App\Http\Controllers\Client')->name('client.')->group(function
 });
 
 
-Route::namespace('App\Http\Controllers\Client')->name('client.')->group(function (){ //авторизация
+Route::namespace('App\Http\Controllers\Client')->name('client.')->middleware(['auth', 'client'])->group(function (){
     Route::get('/write', WriteController::class)->name('write');
     Route::get('/times', GetTimesController::class)->name('get_times');
     Route::get('/services-of-doctor', GetServicesController::class)->name('get_services');
@@ -43,7 +43,7 @@ Route::namespace('App\Http\Controllers\Client')->name('client.')->group(function
 
 });
 
-Route::namespace('App\Http\Controllers\Client')->name('client.')->group(function (){ //авторизация doctor
+Route::namespace('App\Http\Controllers\Client')->name('client.')->middleware(['auth', 'doctor'])->group(function (){
     Route::get('/doctor-writes', GetWriteDoctorController::class)->name('get_doctor_writes');
     Route::get('/doctor-visits', GetVisitDoctorController::class)->name('get_doctor_visits');
     Route::get('/doctor/writes', DoctorWriteController::class)->name('doctor_writes');
@@ -51,13 +51,16 @@ Route::namespace('App\Http\Controllers\Client')->name('client.')->group(function
     Route::post('/doctor/create-visit', StoreVisitController::class)->name('store_visit');
     Route::patch('/doctor/update-visit', UpdateVisitController::class)->name('update_visit');
 
+});
+
+Route::namespace('App\Http\Controllers\Client')->name('client.')->middleware(['auth', 'medsister'])->group(function (){
     Route::get('/medsister', MedsisterController::class)->name('medsister');
     Route::get('/doctor/search-client', SearchClientController::class);
     Route::post('/medsister/create-visit', MedsisterCreateVisitController::class);
 });
 
 
-Route::prefix('/admin')->name('admin.')->group(function (){
+Route::prefix('/admin')->name('admin.')->middleware(['auth', 'admin'])->group(function (){
     Route::namespace('App\Http\Controllers\Admin\Specialist')->prefix('/specialist')->name('specialist.')->group(function (){
         Route::get('/', IndexController::class)->name('index');
         Route::get('/create', CreateController::class)->name('create');

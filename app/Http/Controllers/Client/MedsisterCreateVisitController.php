@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Visit;
 use App\Models\Write;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -24,7 +25,7 @@ class MedsisterCreateVisitController extends Controller
                 $writeData['time_write'] = 0;
                 $writeData['client_id'] = $data['client_id'];
                 $writeData['service_id'] = $data['service_id'];
-                $writeData['doctor_id'] = 2; //TODO: Auth->user()
+                $writeData['doctor_id'] = Auth::user()->doctor->id;
 
                 $write = Write::create($writeData);
 
