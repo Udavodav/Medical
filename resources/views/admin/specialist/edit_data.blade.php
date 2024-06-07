@@ -24,7 +24,7 @@
 
                         <div class="card card-primary">
 
-                            <form class="bg-white" action="{{route('admin.specialist.update_data')}}" method="POST"
+                            <form class="bg-white" action="{{route('admin.specialist.update_data', $specialist->id)}}" method="POST"
                                   enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')
@@ -62,6 +62,10 @@
                                         <div class="mb-5">
                                             <label for="inputImage" class="form-label">Фото специалиста</label>
                                             <input class="form-control" type="file" id="inputImage" onchange="preview()" name="image">
+                                            <div class="custom-control custom-checkbox my-2 ml-3">
+                                                <input class="custom-control-input" type="checkbox" id="isChangeFile" name="isChangeFile">
+                                                <label for="isChangeFile" class="custom-control-label">Изменить фото</label>
+                                            </div>
                                             <button id="clearButton" onclick="clearImage()" type="button" class="btn btn-primary mt-3">Очистить изображение
                                             </button>
                                         </div>
@@ -80,23 +84,6 @@
                                         <textarea class="form-control summernote" id="inputDescription" rows="3" maxlength="1500"
                                                   name="description">{{empty($specialist->description) ? '' : $specialist->description}}</textarea>
                                         @error('description')
-                                        <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="inputEmail">Эдектронная почта</label>
-                                        <input type="email" name="email" class="form-control" id="inputEmail"
-                                               placeholder="Email" value="{{$specialist->user->email}}">
-                                        @error('email')
-                                        <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputPassword">Пароль</label>
-                                        <input type="text" name="password" class="form-control" id="inputPassword"
-                                               placeholder="Пароль" value="{{$specialist->user->password}}">
-                                        @error('password')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>

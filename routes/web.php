@@ -18,8 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::namespace('App\Http\Controllers\Client')->name('client.')->group(function (){
     Route::get('/', IndexController::class)->name('index');
     Route::get('/contacts', ContactController::class)->name('contacts');
@@ -103,5 +101,11 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth', 'admin'])->group(fu
         Route::post('/', StoreController::class)->name('store');
         Route::delete('/{competence}', DeleteController::class)->name('delete');
         Route::get('/restore/{competence}', RestoreController::class)->name('restore')->withTrashed();
+    });
+
+    Route::namespace('App\Http\Controllers\Admin\Comment')->prefix('/comment')->name('comment.')->group(function (){
+        Route::get('/', IndexController::class)->name('index')->withTrashed();
+        Route::delete('/{comment}', DeleteController::class)->name('delete');
+        Route::get('/restore/{comment}', RestoreController::class)->name('restore')->withTrashed();
     });
 });

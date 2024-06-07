@@ -14,7 +14,7 @@
                 <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <span class="brand-text font-weight-light text-white">Auth::user()->name</span>
+                <span class="brand-text font-weight-light text-dark">{{Auth::user()->email}}</span>
             </div>
         </div>
 
@@ -46,6 +46,14 @@
                         <i class="nav-icon fas fa-tasks"></i>
                         <p>
                             Категории и услуги
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.comment.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-comments"></i>
+                        <p>
+                            Отзывы клиентов
                         </p>
                     </a>
                 </li>

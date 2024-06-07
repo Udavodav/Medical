@@ -40,20 +40,37 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputDescription">Описание</label>
-                                        <textarea class="form-control summernote" id="inputDescription" rows="3" maxlength="1500"
+                                        <textarea class="form-control summernote" id="inputDescription" rows="5" maxlength="1500"
                                                   name="description">{{old('description',$category->description)}}</textarea>
                                         @error('description')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
+                                        <label for="inputIcon">Иконка</label>
+                                        <input type="text" name="icon" class="form-control" id="inputIcon"
+                                               placeholder="Иконка" value="{{old('icon',$category->icon)}}" onchange="iconOnChange()">
+                                        @error('icon')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                        <div class="text-secondary">Для вставки иконки перейдите на сайт <a href="https://fontawesome.com/v5/search?o=r&m=free" target="_blank">FontAwesome</a>
+                                            найдите подходящую иконку и вставте в поле содержимое тега class. Например < i class="fas fa-yin-yang">< / i>, вставляем 'fas fa-yin-yang'</div>
+                                        <div>
+                                            <i id="iconShow" class=""></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <div class="mb-5">
                                             <label for="inputImage" class="form-label">Фото</label>
                                             <input class="form-control" type="file" id="inputImage" onchange="preview()" name="image">
+                                            <div class="custom-control custom-checkbox my-2 ml-3">
+                                                <input class="custom-control-input" type="checkbox" id="isChangeFile" name="isChangeFile">
+                                                <label for="isChangeFile" class="custom-control-label">Изменить фото</label>
+                                            </div>
                                             <button id="clearButton" onclick="clearImage()" type="button" class="btn btn-primary mt-3">Очистить изображение
                                             </button>
                                         </div>
-                                        <img id="frame" src="" class="img-fluid"/>
+                                        <img id="frame" src="" class="img-fluid" style="max-width:500px; max-height:400px;"/>
                                     </div>
 
 

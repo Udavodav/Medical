@@ -14,6 +14,7 @@
                                 src="{{asset('storage/'.(empty($specialist->image) ? 'images/picture.jpg' : $specialist->image))}}"
                                 alt="Изображение не найдено"
                                 class="img-fluid rounded-start"
+                                style=" max-height:600px;"
                             />
                         </div>
                         <div class="col-md-8">

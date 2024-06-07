@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Category;
+namespace App\Http\Requests\Admin\Specialist;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -29,8 +29,10 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string',
-            'icon' => 'nullable|string',
+            'name' => 'required|string',
+            'birthday' => 'required|date',
+            'competence_id' => 'required|exists:competences,id',
+            'education' => 'nullable|string',
             'description' => 'nullable|string',
             'image' => 'nullable|image',
             'isChangeFile' => 'boolean',

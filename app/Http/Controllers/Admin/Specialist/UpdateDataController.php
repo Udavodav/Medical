@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Specialist;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Specialist\StoreRequest;
+use App\Http\Requests\Admin\Specialist\UpdateRequest;
 use App\Models\AnswerEmpty;
 use App\Models\AnswerOption;
 use App\Models\AnswerOrder;
@@ -17,29 +18,27 @@ use Illuminate\Support\Facades\Storage;
 
 class UpdateDataController extends Controller
 {
-    public function __invoke(StoreRequest $request)
+    public function __invoke(UpdateRequest $request, Doctor $specialist)
     {
         $data = $request->validated();
 
-       // try {
-            DB::transaction(function () use ($data) {
-                if (isset($data['image']))
-                    $data['image'] = Storage::disk('public')->put('/images', $data['image']);
 
-                $userData['role_id'] = '2';
-                $userData['password'] = $data['password'];
-                $userData['email'] = $data['email'];
-                unset($data['email']);
-                unset($data['password']);
+        if ($data['isChangeFile']) {
+            if ($specialist->image)
+                Storage::disk('public')->delete($specialist->image);
 
-                $user = User::create($userData);
-                $data['user_id'] = $user->id;
-           Doctor::create($data);
-            });
-//        } catch (\Exception $exception) {
-//            abort(500);
-//        }
+            if (isset($data['image'])) {
+                $data['image'] = Storage::disk('public')->put('/images', $data['image']);
+            } else {
+                $data['image'] = null;
+            }
+        } else {
+            unset($data['image']);
+        }
+        unset($data['isChangeFile']);
 
-        return redirect()->route('admin.specialist.index');
+        $specialist->update($data);
+
+        return redirect()->route('admin.specialist.show', $specialist->id);
     }
 }

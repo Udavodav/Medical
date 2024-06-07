@@ -18,6 +18,6 @@ class AdminMiddleware
         if(auth()->user()->role->title === 'admin')
             return $next($request);
 
-        return redirect()->route('client.index');
+        return redirect()->route('admin.specialist.index');
     }
 }
