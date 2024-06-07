@@ -28,14 +28,16 @@
     </div>
 
 
-    <section class="service-area pt-100 pb-70">
+    <section class="service-area pt-50 pb-70">
 
         <div class="doctors-details-area pt-100 pb-70">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-5">
                         <div class="doctors-details-img">
-                            <img src="{{asset('storage/'.(empty($specialist->image) ? 'images/picture.jpg' : $specialist->image))}}" alt="Images">
+                            <img
+                                src="{{asset('storage/'.(empty($specialist->image) ? 'images/picture.jpg' : $specialist->image))}}"
+                                alt="Images">
                         </div>
                     </div>
 
@@ -61,13 +63,60 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-12 pt-100">
+
+                    <div class="col-lg-12">
+                        <div class="billing-details">
+                            <h3 class="title">Коментарии</h3>
+
+                            <div class="row">
+
+                                <form id="commentForm">
+                                    @csrf
+                                    <input type="text" name="doctor_id" class="d-none" value="{{$specialist->id}}">
+                                    <div class="col-lg-12 ">
+                                        <div class="form-group">
+                                        <textarea name="text" id="text" cols="30" rows="5" placeholder="Ваш комментарий"
+                                                  class="form-message"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 text-right mt-0 mb-3">
+                                        <button type="submit" class="default-btn disabled" id="commentSubmit"
+                                                style="pointer-events: all; cursor: pointer;">
+                                            Опубликовать
+                                        </button>
+                                    </div>
+                                </form>
+
+                                @foreach($comments as $comment)
+                                    <div class="post">
+                                        <div class="user-block">
+                                        <span class="username">
+                                          <a href="#">{{$comment->client->name}}</a>
+                                        </span>
+                                            <span class="description">Дата публикации -  {{\Carbon\Carbon::parse($comment->date)->format('d.m.Y H:i')}}</span>
+                                        </div>
+                                        <p>
+                                            {{$comment->text}}
+                                        </p>
+                                    </div>
+                                @endforeach
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
+
+            <script src="{{asset('dist/js/comment.js')}}"></script>
+
             <div class="doctors-details-shape">
-                <img src="assets/img/doctors/doctors-shape4.png" alt="Images">
+                <img src="{{asset('assets/img/doctors/doctors-shape4.png')}}" alt="Images">
             </div>
         </div>
-
-
     </section>
 
 @endsection

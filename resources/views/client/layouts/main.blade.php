@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="{{asset('dist/css/select_box.css')}}">
 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Bootstrap CSS -->
@@ -32,6 +33,8 @@
     <link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{asset("assets/css/responsive.css")}}">
+
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 

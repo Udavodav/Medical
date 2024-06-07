@@ -59,7 +59,7 @@
                                 <span>{{$loop->iteration}}</span>
                             </td>
                             <td class="total-price" width="120">
-                                <span>{{$write->date_write}}</span>
+                                <span>{{ \Carbon\Carbon::parse($write->date_write)->format('d.m.Y H:i')}}</span>
                             </td>
                             <td class="total-price" width="70">
                                 <span>{{intdiv($write->time_write, 60)}}:{{$write->time_write % 60 < 10 ? '0'.($write->time_write % 60) : $write->time_write % 60}}</span>

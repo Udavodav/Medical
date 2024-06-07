@@ -15,9 +15,6 @@ use App\Http\Controllers\Client\VisitController;
 use App\Http\Controllers\Client\WriteController;
 use Illuminate\Support\Facades\Route;
 
-//Route::get('/home', function () {
-//    return view('home');
-//});
 
 Auth::routes();
 
@@ -40,6 +37,7 @@ Route::namespace('App\Http\Controllers\Client')->name('client.')->middleware(['a
     Route::get('/services-of-doctor', GetServicesController::class)->name('get_services');
     Route::post('/write', StoreWriteController::class)->name('store_write');
     Route::get('/visits', VisitController::class)->name('visits');
+    Route::post('/comment', StoreCommentController::class);
 
 });
 

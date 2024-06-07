@@ -395,6 +395,8 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+        </div>
 
         <div class="doctors-shape">
             <div class="doctors-shape-1">
