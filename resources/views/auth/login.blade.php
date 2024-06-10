@@ -64,8 +64,8 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6 col-sm-6">
-                                        <a class="forget" href="#">Забыли пароль?</a>
+                                    <div class="col-12">
+                                        <a class="forget" href="{{ route('password.request') }}">Забыли пароль?</a>
                                     </div>
 
                                     <div class="col-lg-12 col-md-12 text-center">
