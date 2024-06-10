@@ -68,9 +68,13 @@
                     </ul>
                 </div>
 
-                <li class="nav-item">
-                    <a class="nav-link btn btn-outline-primary text-nowrap" href="{{route('client.write')}}">Запись онлайн</a>
-                </li>
+                @auth
+                    @if(auth()->user()->role->title === 'client')
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-primary text-nowrap" href="{{route('client.write')}}">Запись онлайн</a>
+                        </li>
+                    @endif
+                @endauth
 
                 @guest
                     @if (Route::has('login'))

@@ -13,7 +13,12 @@
                         <p>Запишитесь на прием онлайн и будьте в безопасности дома. Потому что ваша безопасность - наш
                             главный приоритет.</p>
                         <div class="banner-btn">
-                            <a href="#" class="appointment-btn">Записаться на прием</a>
+                            @auth
+                                @if(auth()->user()->role->title === 'client')
+                                    <a href="{{route('client.write')}}" class="appointment-btn">Записаться на прием</a>
+                                @endif
+                            @endauth
+
                         </div>
                     </div>
                 </div>
@@ -228,17 +233,16 @@
                                     <div class="service-icon">
                                         <i class="{{$category->icon}}"></i>
                                     </div>
-                                    <h3><a href="{{route('client.services', $category->id)}}">{{$category->title}}</a>
-                                    </h3>
+                                    <h3>{{$category->title}}</h3>
                                     <div class="content">
                                         {!! $category->description !!}
                                     </div>
                                 </div>
                                 <div class="service-shape-1">
-                                    <img src="assets/img/services/service-shape1.png" alt="Images">
+                                    <img src="{{asset('assets/img/services/service-shape1.png')}}" alt="Images">
                                 </div>
                                 <div class="service-shape-2">
-                                    <img src="assets/img/services/service-shape2.png" alt="Images">
+                                    <img src="{{asset('assets/img/services/service-shape2.png')}}" alt="Images">
                                 </div>
                             </div>
                         </a>
@@ -391,32 +395,33 @@
             <div class="doctors-slider owl-carousel owl-theme pt-45">
 
                 @foreach($specialists as $specialist)
-                    <a href="{{route('client.specialist_details', $specialist->id)}}">
-                        <div class="doctors-item">
-                            <div class="doctors-img">
+
+                    <div class="doctors-item">
+                        <div class="doctors-img">
+                            <a href="{{route('client.specialist_details', $specialist->id)}}">
                                 <img
                                     src="{{asset('storage/'.(empty($specialist->image) ? 'images/picture.jpg' : $specialist->image))}}"
                                     alt="Images">
-                            </div>
-                            <div class="content">
-                                <h3>
-                                    <a href="{{route('client.specialist_details', $specialist->id)}}">{{$specialist->name}}</a>
-                                </h3>
-                                <span>{{$specialist->competence->title}}</span>
-                                <ul class="social-link">
-                                    <li>
-                                        <a href="#" target="_blank"><i class='bx bxl-facebook'></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank"><i class='bx bxl-twitter'></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank"><i class='bx bxl-linkedin'></i></a>
-                                    </li>
-                                </ul>
-                            </div>
+                            </a>
                         </div>
-                    </a>
+                        <div class="content">
+                            <h3>
+                                <a href="{{route('client.specialist_details', $specialist->id)}}">{{$specialist->name}}</a>
+                            </h3>
+                            <span>{{$specialist->competence->title}}</span>
+                            <ul class="social-link">
+                                <li>
+                                    <a href="#" target="_blank"><i class='bx bxl-facebook'></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"><i class='bx bxl-twitter'></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 @endforeach
             </div>
         </div>
