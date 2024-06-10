@@ -25,8 +25,5 @@ class AppServiceProvider extends ServiceProvider
             return route(Auth::user()->role->title === 'admin' ? 'admin.specialist.index' : 'client.index');
         });
 
-        if($this->app->environment('production')) {
-            \URL::forceScheme('https');
-        }
     }
 }
