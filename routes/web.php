@@ -16,7 +16,7 @@ use App\Http\Controllers\Client\WriteController;
 use Illuminate\Support\Facades\Route;
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/mail', function (){
     return view('notification_mail');
@@ -33,7 +33,7 @@ Route::namespace('App\Http\Controllers\Client')->name('client.')->group(function
 });
 
 
-Route::namespace('App\Http\Controllers\Client')->name('client.')->middleware(['auth', 'client'])->group(function (){
+Route::namespace('App\Http\Controllers\Client')->name('client.')->middleware(['auth', 'client', 'verified'])->group(function (){
     Route::get('/write', WriteController::class)->name('write');
     Route::get('/times', GetTimesController::class)->name('get_times');
     Route::get('/services-of-doctor', GetServicesController::class)->name('get_services');
