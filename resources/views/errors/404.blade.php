@@ -9,7 +9,7 @@
                 <h3>404 Error page!</h3>
                 <ul>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="{{route('client.index')}}">Главная</a>
                     </li>
                     <li>404 page</li>
                 </ul>
