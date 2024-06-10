@@ -213,12 +213,12 @@
                 @foreach($categories as $category)
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
-                        <a href="service-details.html"><img src="{{asset('storage/'.(empty($category->image) ? 'images/picture_category.jpg' : $category->image))}}" alt="Images"></a>
+                        <a href="{{route('client.services', $category->id)}}"><img src="{{asset('storage/'.(empty($category->image) ? 'images/picture_category.jpg' : $category->image))}}" alt="Images"></a>
                         <div class="service-content">
                             <div class="service-icon">
                                 <i class="{{$category->icon}}"></i>
                             </div>
-                            <h3><a href="service-details.html">{{$category->title}}</a></h3>
+                            <h3><a href="{{route('client.services', $category->id)}}">{{$category->title}}</a></h3>
                             <div class="content">
                                 {!! $category->description !!}
                             </div>
@@ -369,12 +369,12 @@
                 @foreach($specialists as $specialist)
                 <div class="doctors-item">
                     <div class="doctors-img">
-                        <a href="doctors-details.html">
+                        <a href="{{route('client.specialist_details', $specialist->id)}}">
                             <img src="{{asset('storage/'.(empty($specialist->image) ? 'images/picture.jpg' : $specialist->image))}}" alt="Images">
                         </a>
                     </div>
                     <div class="content">
-                        <h3><a href="doctors-details.html">{{$specialist->name}}</a></h3>
+                        <h3><a href="{{route('client.specialist_details', $specialist->id)}}">{{$specialist->name}}</a></h3>
                         <span>{{$specialist->competence->title}}</span>
                         <ul class="social-link">
                             <li>
@@ -480,7 +480,7 @@
                                 <div class="content">
                                     <img src="{{asset("assets/img/people/people3.png")}}" alt="Images">
                                     <h3>Ксения Собчак</h3>
-                                    <span>Пациетн с кариесом</span>
+                                    <span>Пациент с кариесом</span>
                                 </div>
                             </div>
 
