@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('/mail', function (){
+    return view('notification_mail');
+});
+
 Route::namespace('App\Http\Controllers\Client')->name('client.')->group(function (){
     Route::get('/', IndexController::class)->name('index');
     Route::get('/contacts', ContactController::class)->name('contacts');
