@@ -38,6 +38,7 @@ Route::namespace('App\Http\Controllers\Client')->name('client.')->middleware(['a
     Route::get('/times', GetTimesController::class)->name('get_times');
     Route::get('/services-of-doctor', GetServicesController::class)->name('get_services');
     Route::post('/write', StoreWriteController::class)->name('store_write');
+    Route::get('/write-delete/{write}', DeleteWriteController::class)->name('delete_write');
     Route::get('/visits', VisitController::class)->name('visits');
     Route::post('/comment', StoreCommentController::class);
 

@@ -48,6 +48,7 @@
                         <th scope="col">Услуга</th>
                         <th scope="col">Коментарий специалиста</th>
                         <th scope="col">Результат</th>
+                        <th scope="col">Отмена</th>
                     </tr>
                     </thead>
 
@@ -78,6 +79,11 @@
                                     <a href="{{ url('/').'/storage/'.$write->visit->file}}" target='_blank'>Результат</a>
                                 @endif
                             </td>
+                            <td class="product-subtotal" width="100">
+                                @if(!($write->visit) && $write->date < \Carbon\Carbon::today())
+                                    <a href="{{route('client.delete_write', $write->id)}}" class="link-danger">Отменить</a>
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
 
@@ -86,7 +92,7 @@
 
             </div>
         </div>
-        <div class="service-dots-2">
+        <div class="service-dots-2" style=" z-index: -100">
             <img src="{{asset('assets/img/services/service-dots-2.png')}}" alt="Images">
         </div>
     </section>
