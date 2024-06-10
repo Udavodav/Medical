@@ -57,14 +57,14 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-newspaper"></i>
-                        <p>
-                            Посты и новости
-                        </p>
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="#" class="nav-link">--}}
+{{--                        <i class="nav-icon far fa-newspaper"></i>--}}
+{{--                        <p>--}}
+{{--                            Посты и новости--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
 
             </ul>
