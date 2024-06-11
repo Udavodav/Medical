@@ -2,6 +2,9 @@ const wrapperSpec = document.getElementById("wrapperSpec"),
     selSpec = wrapperSpec.querySelector(".select-btn"),
     searchSpec = wrapperSpec.querySelector(".sr-inp");
 
+const wrapperComp = document.getElementById("wrapperComp"),
+    selComp = wrapperComp.querySelector(".select-btn");
+
 const wrapperService = document.getElementById("wrapperService"),
     selService = wrapperService.querySelector(".select-btn"),
     searchService = wrapperService.querySelector(".sr-inp");
@@ -12,19 +15,26 @@ const wrapperTime = document.getElementById("wrapperTime"),
 
 let specialists = [],
     services = [],
+    competences = [],
     times = [];
 document.addEventListener("DOMContentLoaded", function () {
-    specialists = Array.from(wrapperSpec.querySelectorAll('.options li'), n => [n.value, n.innerText]);
-    $('#doctorInp').trigger('input');
+    competences = Array.from(wrapperComp.querySelectorAll('.options li'), n => [n.value, n.innerText]);
+    $('#competenceInp').trigger('input');
 });
 
 
 function addOptions(selectedItem) {
     let options = selectedItem.parentNode;
-    if (options.id == 'optionsSpec'){
-        fillOptions(specialists, options, selectedItem.value);
-    }else {
-        fillOptions(services, options, selectedItem.value);
+    switch (options.id) {
+        case 'optionsSpec':
+            fillOptions(specialists, options, selectedItem.value);
+            break;
+        case 'optionsService':
+            fillOptions(services, options, selectedItem.value);
+            break;
+        case 'optionsComp':
+            fillOptions(competences, options, selectedItem.value);
+            break;
     }
 }
 
@@ -45,9 +55,12 @@ function updateName(selectedLi) {
     const inp = selectedLi.closest('.wrapper').querySelector('.val-inp');
     inp.setAttribute('value', selectedLi.value);
     $('#'+inp.id).trigger('input');
+    console.log(inp.id);
     if(selectedLi.closest('.wrapper').id != 'wrapperTime'){
-        const search = selectedLi.closest('.wrapper').querySelector('.sr-inp');
-        search.value = "";
+        if(selectedLi.closest('.wrapper').id != 'wrapperComp') {
+            const search = selectedLi.closest('.wrapper').querySelector('.sr-inp');
+            search.value = "";
+        }
         addOptions(selectedLi);
     }else{
         fillTimes(selectedLi.value);
@@ -80,6 +93,7 @@ searchService.addEventListener("keyup", () => {
 selSpec.addEventListener("click", () => wrapperSpec.classList.toggle("active"));
 selService.addEventListener("click", () => wrapperService.classList.toggle("active"));
 selTime.addEventListener("click", () => wrapperTime.classList.toggle("active"));
+selComp.addEventListener("click", () => wrapperComp.classList.toggle("active"));
 
 
 function fillTimes(val){
@@ -92,6 +106,53 @@ function fillTimes(val){
 }
 
 
+function fillNull(){
+    document.getElementById('optionsSpec').innerHTML = '';
+    document.getElementById('selectSpec').firstElementChild.innerText = '';
+    document.getElementById('doctorInp').setAttribute('value', '');
+
+    document.getElementById('optionsService').innerHTML = '';
+    document.getElementById('selectService').firstElementChild.innerText = '';
+    document.getElementById('serviceInp').setAttribute('value', '');
+
+    document.getElementById('optionsTime').innerHTML = '';
+    document.getElementById('selectTime').firstElementChild.innerText = '';
+    document.getElementById('timeInp').setAttribute('value', '');
+}
+
+
+
+function inputCompetence(data){
+
+    $.ajax({
+        url: "/doctors-of-competence",
+        type:"GET",
+        data:{
+            competence_id: data.value,
+        },
+        success:function(response){
+            specialists = [];
+
+            for(const i in response) {
+                specialists.push([response[i]['id'], response[i]['name']]);
+            }
+
+            const inp = document.getElementById('doctorInp');
+            if(specialists.length > 0) {
+                fillOptions(specialists, document.getElementById('optionsSpec'), specialists[0][0]);
+                document.getElementById('selectSpec').firstElementChild.innerText = specialists[0][1];
+                inp.setAttribute('value', specialists[0][0]);
+                $('#' + inp.id).trigger('input');
+            }else{
+                fillNull();
+            }
+
+        },
+        error: function (e){
+          fillNull();
+        },
+    });
+}
 
 function inputSpecialist(data){
 

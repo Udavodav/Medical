@@ -47,12 +47,31 @@
 
                             <input class="d-none" name="client_id" value="{{Auth::user()->client->id}}">
 
+                            <div class="wrapper" id="wrapperComp">
+                                <label class="mx-2 my-2 fw-bold">Специалист:</label>
+                                <input class="val-inp d-none" name="competence_id" value="{{$competences[0]->id}}"
+                                       id="competenceInp" oninput="inputCompetence(this)">
+                                <div class="select-btn" id="selectComp">
+                                    <span>{{$competences[0]->title}}</span>
+                                    <i class="uil uil-angle-down"></i>
+                                </div>
+                                <div class="select-content">
+
+                                    <ul class="options" id="optionsComp">
+                                        @foreach($competences as $competence)
+                                            <li value="{{$competence->id}}"
+                                                onclick="updateName(this)" {{$loop->index == 0 ? 'selected' : ''}}>{{$competence->title}}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+
                             <div class="wrapper" id="wrapperSpec">
                                 <label class="mx-2 my-2 fw-bold">Специалист:</label>
-                                <input class="val-inp d-none" name="doctor_id" value="{{$specialists[0]->id}}"
+                                <input class="val-inp d-none" name="doctor_id" value=""
                                        id="doctorInp" oninput="inputSpecialist(this)">
                                 <div class="select-btn" id="selectSpec">
-                                    <span>{{$specialists[0]->name}}</span>
+                                    <span></span>
                                     <i class="uil uil-angle-down"></i>
                                 </div>
                                 <div class="select-content">
@@ -62,10 +81,6 @@
                                                placeholder="Search">
                                     </div>
                                     <ul class="options" id="optionsSpec">
-                                        @foreach($specialists as $specialist)
-                                            <li value="{{$specialist->id}}"
-                                                onclick="updateName(this)" {{$loop->index == 0 ? 'selected' : ''}}>{{$specialist->name}}</li>
-                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -135,7 +150,6 @@
         <div class="service-dots-2">
             <img src="{{asset('assets/img/services/service-dots-2.png')}}" alt="Images">
         </div>
-
 
     </section>
 
