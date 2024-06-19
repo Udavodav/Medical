@@ -18,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
-Route::get('/mail', function (){
-    return abort(500);
-});
+
 
 Route::namespace('App\Http\Controllers\Client')->name('client.')->group(function (){
     Route::get('/', IndexController::class)->name('index');

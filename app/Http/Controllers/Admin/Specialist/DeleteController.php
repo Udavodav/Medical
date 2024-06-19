@@ -20,6 +20,7 @@ class DeleteController extends Controller
     public function __invoke(Doctor $specialist)
     {
         $specialist->delete();
+        $specialist->user->delete();
 
         return redirect()->route('admin.specialist.show', $specialist->id);
     }
