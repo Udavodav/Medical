@@ -28,7 +28,7 @@
                                 <div class="card shadow-sm border-0 rounded">
                                     <div class="card-body p-0 {{empty($category->deleted_at) ? '' : 'bg-orange'}}">
                                         <img src="{{asset('storage/'.(empty($category->image) ? 'images/picture_category.jpg' : $category->image))}}" alt=""
-                                                                    class="w-100 card-img-top">
+                                                                    class="w-100 card-img-top" style="height: 250px; width: auto; object-fit: contain">
                                         <div class="p-4">
                                             <h5 class="mb-0">{{$category->title}}</h5>
                                         </div>

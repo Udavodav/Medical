@@ -10,7 +10,7 @@
                                 <div class="head-icon">
                                     <i class='bx bx-mail-send'></i>
                                 </div>
-                                <a href="#">medical@mail.ru</a> {{-- mailto:hello@medizo.com --}}
+                                <a href="#">medical@mail.ru</a>
                             </li>
 
                             <li>

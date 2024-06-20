@@ -1,7 +1,7 @@
 <div class="navbar-area">
     <!-- Menu For Mobile Device -->
     <div class="mobile-nav">
-        <a href="#" class="logo"> {{-- index.html --}}
+        <a href="#" class="logo">
             <img src="{{asset('images/logo2.png')}}" alt="Logo" width="50">
         </a>
     </div>
@@ -10,7 +10,7 @@
     <div class="main-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light ">
-                <a class="navbar-brand" href="#"> {{-- index.html --}}
+                <a class="navbar-brand" href="#">
                     <img src="{{asset('images/logo2.png')}}" alt="Logo" width="70">
                 </a>
 
@@ -107,9 +107,6 @@
                         </div>
                     </div>
                 @endguest
-
-
-{{--                <a href="{{route('client.write')}}" class="btn  btn-secondary mx-2">Запись на прием</a>--}}
 
             </nav>
         </div>

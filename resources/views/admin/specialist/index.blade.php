@@ -28,7 +28,7 @@
                                 <div class="card shadow-sm border-0 rounded">
                                     <div class="card-body p-0 {{empty($specialist->deleted_at) ? '' : 'bg-orange'}}">
                                         <img src="{{asset('storage/'.(empty($specialist->image) ? 'images/picture.jpg' : $specialist->image))}}" alt=""
-                                                                    class="w-100 card-img-top">
+                                                                    class="w-100 card-img-top" style="height: 250px; max-width: 100%; object-fit: contain">
                                         <div class="p-4">
                                             <h5 class="mb-0">{{$specialist->name}}</h5>
                                             <p class="small text-muted">{{$specialist->competence->title}}</p>

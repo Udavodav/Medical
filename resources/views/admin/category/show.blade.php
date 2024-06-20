@@ -14,7 +14,7 @@
                                 src="{{asset('storage/'.(empty($category->image) ? 'images/picture_category.jpg' : $category->image))}}"
                                 alt="Изображение не найдено"
                                 class="img-fluid rounded-start"
-                                style=" max-height:600px;"
+                                style="max-height: 600px; max-width: 600px; object-fit: contain"
                             />
                         </div>
                         <div class="col-md-8">

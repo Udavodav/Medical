@@ -2,21 +2,18 @@
 
 @section('content')
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
                         <h1 class="m-0">Новая категория</h1>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
 
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
 
@@ -65,13 +62,10 @@
                                             <button id="clearButton" onclick="clearImage()" type="button" class="btn btn-primary mt-3">Очистить изображение
                                             </button>
                                         </div>
-                                        <img id="frame" src="" class="img-fluid"/>
+                                        <img id="frame" src="" class="img-fluid" style="max-height: 250px; max-width: 300px; object-fit: contain"/>
                                     </div>
 
-
-
                                 </div>
-                                <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Добавить</button>
                                 </div>
@@ -98,11 +92,9 @@
                 </script>
 
 
-            </div><!-- /.container-fluid -->
+            </div>
         </section>
-        <!-- /.content -->
 
     </div>
-    <!-- /.content-wrapper -->
 
 @endsection
